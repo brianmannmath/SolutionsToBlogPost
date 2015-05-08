@@ -12,17 +12,17 @@ def find_largest(l):
 			max = value
 	return max
 
-digits = range(1,10)
-
 '''
 Problem 5 from the post
 '''
+
+digits = range(1,10)
 
 #Function to flatten a list
 def concat(x):
 	return reduce(lambda p,q: str(p) + ' ' +  str(q),x)
 
-#Takes an expression with spaces before and after the + and - only
+#Takes an expression with spaces before and after the + and -, and evaluates it mathematically
 def parse(expr):
 	expr = expr.split()
 	element = None
