@@ -12,6 +12,27 @@ def find_largest(l):
 			max = value
 	return max
 
+def find_largest_better(l):
+	l = map(lambda x: str(x), l)
+	l.sort()
+	l.reverse()
+	#Take all the elements which start with the same number, then find the largest combination
+	num = l[0][0]
+	sub = list()
+	result = list()
+	for e in l:
+		if e[0] == num:
+			sub.append(e)
+		else:
+			result.append(find_largest(sub))
+			num = e[0]
+			sub = [e]
+	
+	result.append(find_largest(sub))
+
+	return int(reduce(lambda x,y: str(x) + str(y), result))
+
+
 '''
 Problem 5 from the post
 '''
@@ -38,7 +59,7 @@ def parse(expr):
 
 	return int(expr.pop())
 
-#Retursn a list of all possible expressions from [1..9], and +,-,''
+#Returns a list of all possible expressions from [1..9], and +,-,''
 def possible(input):
 	results = list()
 	if len(input) > 1:
