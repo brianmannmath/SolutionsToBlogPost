@@ -4,6 +4,7 @@ from itertools import permutations
 Problem 4 from the blog post
 '''
 
+#Brute force solution. Really really slow on large lists
 def find_largest(l):
 	max = 0
 	for p in permutations(l):
@@ -12,6 +13,8 @@ def find_largest(l):
 			max = value
 	return max
 
+#Better solution. Only uses brute force on sublists that start with the same digit. 
+#This is still not optimal. There is an O(n log n) solution I think. Will write up later. 
 def find_largest_better(l):
 	l = map(lambda x: str(x), l)
 	l.sort()
